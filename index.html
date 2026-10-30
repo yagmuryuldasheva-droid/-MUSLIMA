@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muslima's Family Tree</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    font-family: Georgia, serif;
+    background: #edf5fb;
+    color: #29445d;
+}
+
+header {
+    text-align: center;
+    padding: 45px 15px;
+    background: #dcecf8;
+    border: 1px solid #b9d5e9;
+    border-radius: 20px;
+    max-width: 1300px;
+    margin: 0 auto 35px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 3px;
+    margin: 0 0 12px;
+}
+
+header p {
+    color: #6485a1;
+    font-style: italic;
+}
+
+h2 {
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #426987;
+    margin: 25px 0;
+}
+
+h3 {
+    text-align: center;
+    font-weight: normal;
+    color: #587e9c;
+}
+
+.section {
+    max-width: 1500px;
+    margin: 45px auto;
+    padding: 25px 15px;
+    background: #f9fcff;
+    border: 1px solid #c9dfef;
+    border-radius: 18px;
+}
+
+.section-title {
+    text-align: center;
+    padding: 15px;
+    background: #dcecf8;
+    border-radius: 12px;
+    letter-spacing: 2px;
+    color: #365c7b;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.tree-scroll {
+    overflow-x: auto;
+    padding: 20px 10px 45px;
+}
+
+.tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: max-content;
+    padding: 10px 20px;
+}
+
+/* PEOPLE */
+
+.person {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    min-height: 65px;
+    padding: 12px 15px;
+    margin: 0 5px;
+    background: #e8f3fb;
+    border: 1px solid #b8d5e9;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.person strong {
+    font-size: 14px;
+    font-weight: normal;
+    color: #294d6a;
+}
+
+.person small {
+    font-size: 11px;
+    margin-top: 6px;
+    color: #7391aa;
+}
+
+.person.special {
+    background: #d7eaf8;
+    border-color: #8fb9d9;
+}
+
+/* MARRIED COUPLES */
+
+.couple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.heart {
+    color: #83a9c7;
+    font-size: 19px;
+}
+
+/* CONNECTING LINES */
+
+.connector {
+    width: 2px;
+    height: 35px;
+    background: #8db5d3;
+    margin: 0 auto;
+}
+
+.children {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding-top: 35px;
+    gap: 12px;
+}
+
+.children::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 18px;
+    width: 2px;
+    background: #8db5d3;
+}
+
+.child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 18px;
+}
+
+.child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 18px;
+    background: #8db5d3;
+}
+
+.child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #8db5d3;
+}
+
+.child:first-child::after {
+    left: 50%;
+    width: 50%;
+}
+
+.child:last-child::after {
+    width: 50%;
+}
+
+.child:only-child::after {
+    display: none;
+}
+
+/* FAMILY BRANCHES */
+
+.descendants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.descendants .connector {
+    height: 25px;
+}
+
+.descendants .person {
+    margin-bottom: 8px;
+}
+
+.descendants .children {
+    margin-top: 0;
+}
+
+/* FAMILY SUMMARY */
+
+.family-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #dcecf8;
+    border: 1px solid #b9d5e9;
+    border-radius: 18px;
+    text-align: center;
+}
+
+.family-section .children {
+    flex-wrap: nowrap;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 10px;
+    color: #7896ae;
+    font-style: italic;
+}
+
+@media(max-width: 700px) {
+    h1 {
+        font-size: 29px;
+    }
+
+    .section {
+        padding: 15px 8px;
+    }
+
+    .person {
+        min-width: 130px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Muslima's Family Tree</h1>
+    <p>A Journey Through Three Generations</p>
+    <p>Roots of Love · Branches of Family · Stories of Life</p>
+</header>
+
+
+<!-- MATERNAL FAMILY -->
+
+<section class="section">
+
+<div class="section-title">MATERNAL FAMILY</div>
+
+<div class="tree-scroll">
+<div class="tree">
+
+<h3>First Generation – Great-Grandparents</h3>
+
+<div class="couple">
+    <div class="person">
+        <strong>Shohasan Davlatov</strong>
+        <small>1930–2004</small>
+    </div>
+    <span class="heart">♥</span>
+    <div class="person">
+        <strong>Davlatova Zahro</strong>
+        <small>1934–2001</small>
+    </div>
+</div>
+
+<div class="connector"></div>
+
+<h3>Second Generation – Their Children</h3>
+
+<div class="children">
+
+    <div class="child">
+        <div class="person">
+            <strong>Баходир Давлатов</strong>
+            <small>Born 1955</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Гулчехра Давлатова</strong>
+            <small>11 October 1957</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Бахтиёр Далатов</strong>
+            <small>1958–2020</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Равшан Давлатов</strong>
+            <small>1963–2020</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Зухра Давлатова</strong>
+            <small>Born 1967</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Davron</strong>
+            <small>27 April 1965</small>
+        </div>
+
+        <div class="descendants">
+            <div class="couple">
+                <span class="heart">♥</span>
+                <div class="person">
+                    <strong>Muhtabar</strong>
+                    <small>9 July 1968</small>
+                </div>
+            </div>
+
+            <div class="connector"></div>
+
+            <div class="children">
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Durdona</strong>
+                        <small>20 March 1988</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Rovshan</strong>
+                            <small>Husband · 26 March 1981</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Anvarjon<small>4 November 2006</small></div>
+                        <div class="person">Abdulloh<small>28 June 2008</small></div>
+                        <div class="person">Muhammadbilol<small>20 August 2013</small></div>
+                        <div class="person">Khadija<small>31 December 2020</small></div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person special">
+                        <strong>Dildora</strong>
+                        <small>Muslima's Mother · 8 February 1990</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Jasur</strong>
+                            <small>Husband · 31 August 1983</small>
+                        </div>
+                        <small style="color:#7391aa; margin-top:8px;">
+                            Children shown in the family section below
+                        </small>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Javlon</strong>
+                        <small>12 July 1992</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Dilobar</strong>
+                            <small>Wife · 28 September 1997</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Umar<small>16 December 2017</small></div>
+                        <div class="person">Abdurahmon<small>20 March 2020</small></div>
+                        <div class="person">Muhammadamin<small>29 March 2022</small></div>
+                        <div class="person">Safiya<small>31 July 2026</small></div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Munisa</strong>
+                        <small>31 December 1999</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Alisher</strong>
+                            <small>Husband · 29 April 1993</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Madina<small>19 August 2017</small></div>
+                        <div class="person">Rayyona<small>19 July 2022</small></div>
+                        <div class="person">Muhammadali<small>1 April 2026</small></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- PATERNAL FAMILY -->
+
+<section class="section">
+
+<div class="section-title">PATERNAL FAMILY</div>
+
+<div class="tree-scroll">
+<div class="tree">
+
+<h3>First Generation – Great-Grandparents</h3>
+
+<div class="couple">
+    <div class="person">
+        <strong>Mirsoat Miraliyev</strong>
+        <small>1927–2000</small>
+    </div>
+    <span class="heart">♥</span>
+    <div class="person">
+        <strong>Khojieva Zuhra</strong>
+        <small>1933–1995</small>
+    </div>
+</div>
+
+<div class="connector"></div>
+
+<h3>Second Generation</h3>
+
+<div class="couple">
+    <div class="person">
+        <strong>Mirpolat</strong>
+        <small>7 November · 68 years old</small>
+    </div>
+    <span class="heart">♥</span>
+    <div class="person">
+        <strong>Dilfuza</strong>
+        <small>19 February · 63 years old</small>
+    </div>
+</div>
+
+<div class="connector"></div>
+
+<h3>Third Generation – Their Children</h3>
+
+<div class="children">
+
+    <!-- RUSTAM -->
+
+    <div class="child">
+        <div class="person">
+            <strong>Rustam</strong>
+            <small>9 January 1981</small>
+        </div>
+
+        <div class="descendants">
+            <div class="person">
+                <strong>Fotima</strong>
+                <small>Wife · 28 February 1987</small>
+            </div>
+            <div class="connector"></div>
+
+            <div class="children">
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Durdona</strong>
+                        <small>4 August 2005</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Khusanboy</strong>
+                            <small>Husband · 8 February 2001</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Muhammadali<small>16 July 2025</small></div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Rukhsora</strong>
+                        <small>9 January 2008</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Bahodir</strong>
+                            <small>Husband</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Khalid<small>3 October 2026</small></div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">E'zoza<small>16 April 2010</small></div>
+                </div>
+
+                <div class="child">
+                    <div class="person">Muhammadamin<small>14 January 2012</small></div>
+                </div>
+
+                <div class="child">
+                    <div class="person">Osiyo<small>23 November 2016</small></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- UMIDA -->
+
+    <div class="child">
+        <div class="person">
+            <strong>Umida</strong>
+            <small>5 May 1982</small>
+        </div>
+
+        <div class="descendants">
+            <div class="person">
+                <strong>Dilmurod</strong>
+                <small>Husband · 5 January 1981</small>
+            </div>
+            <div class="connector"></div>
+
+            <div class="children">
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Elmurod</strong>
+                        <small>20 May 2001</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Iroda</strong>
+                            <small>Wife · 26 March 2006</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">
+                        <strong>Aziza</strong>
+                        <small>20 December 2005</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            <strong>Nizomiddin</strong>
+                            <small>Husband · 20 November 1997</small>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="person">Muhammad<small>4 June 2023</small></div>
+                        <div class="person">Soliha<small>30 July 2025</small></div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">
+                        MuhammadSolih
+                        <small>3 January 2010</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JASUR -->
+
+    <div class="child">
+        <div class="person special">
+            <strong>Jasur</strong>
+            <small>Muslima's Father · 31 August 1983</small>
+        </div>
+        <div class="descendants">
+            <div class="person">
+                <strong>Dildora</strong>
+                <small>Wife · 8 February 1990</small>
+            </div>
+            <small style="color:#7391aa; margin-top:8px;">
+                Their children are shown below
+            </small>
+        </div>
+    </div>
+
+
+    <!-- DILOBAR -->
+
+    <div class="child">
+        <div class="person">
+            <strong>Dilobar</strong>
+            <small>Born 1985</small>
+        </div>
+
+        <div class="descendants">
+            <div class="person">
+                <strong>Bahodir</strong>
+                <small>Husband · 16 August 1980</small>
+            </div>
+            <div class="connector"></div>
+
+            <div class="children">
+
+                <div class="child">
+                    <div class="person">
+                        Mubina
+                        <small>28 June 2007</small>
+                    </div>
+                    <div class="descendants">
+                        <div class="person">
+                            Ahmad
+                            <small>Husband · 28 June 1999</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="person">Iymona<small>20 July 2011</small></div>
+                </div>
+
+                <div class="child">
+                    <div class="person">Soliha<small>8 August 2013</small></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- DILOROM -->
+
+    <div class="child">
+        <div class="person">
+            <strong>Dilorom</strong>
+            <small>11 October 1987</small>
+        </div>
+
+        <div class="descendants">
+            <div class="person">
+                <strong>Akmal</strong>
+                <small>Husband · 12 April 1983</small>
+            </div>
+            <div class="connector"></div>
+
+            <div class="person">Abdulloh<small>27 June 2008</small></div>
+            <div class="person">Abdurahmon<small>8 October 2011</small></div>
+            <div class="person">Sora<small>28 August 2016</small></div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- IMMEDIATE FAMILY -->
+
+<section class="family-section">
+
+<h2>Jasur & Dildora's Family</h2>
+
+<div class="couple">
+
+    <div class="person">
+        <strong>Jasur</strong>
+        <small>Father · 31 August 1983</small>
+    </div>
+
+    <span class="heart">♥</span>
+
+    <div class="person">
+        <strong>Dildora</strong>
+        <small>Mother · 8 February 1990</small>
+    </div>
+
+</div>
+
+<div class="connector"></div>
+
+<h3>Their Children</h3>
+
+<div class="children">
+
+    <div class="child">
+        <div class="person special">
+            <strong>Muslima</strong>
+            <small>1 December 2008</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Muhammad Yusuf</strong>
+            <small>21 December 2010</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Firdavs</strong>
+            <small>24 September 2013</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Jasmin</strong>
+            <small>17 July 2018</small>
+        </div>
+    </div>
+
+    <div class="child">
+        <div class="person">
+            <strong>Aisha</strong>
+            <small>7 March 2025</small>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+<footer>
+Every family has a story. This is ours.
+<br><br>
+Made with love ♡
+</footer>
+
+</body>
+</html>
